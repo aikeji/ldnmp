@@ -1027,31 +1027,6 @@ case $choice in
 
       cd /home/web && docker-compose up -d
 
-      docker exec php apt update &&
-      docker exec php apt install -y libmariadb-dev-compat libmariadb-dev libzip-dev libmagickwand-dev imagemagick &&
-      docker exec php docker-php-ext-install mysqli pdo_mysql zip exif gd intl bcmath opcache &&
-      docker exec php pecl install imagick &&
-      docker exec php sh -c 'echo "extension=imagick.so" > /usr/local/etc/php/conf.d/imagick.ini' &&
-      docker exec php pecl install redis &&
-      docker exec php sh -c 'echo "extension=redis.so" > /usr/local/etc/php/conf.d/docker-php-ext-redis.ini' &&
-      docker exec php sh -c 'echo "upload_max_filesize=50M \n post_max_size=50M" > /usr/local/etc/php/conf.d/uploads.ini' &&
-      docker exec php sh -c 'echo "memory_limit=256M" > /usr/local/etc/php/conf.d/memory.ini'
-      docker exec php sh -c 'echo "max_execution_time=120" > /usr/local/etc/php/conf.d/max_execution_time.ini'
-      docker exec php sh -c 'echo "max_input_time=70" > /usr/local/etc/php/conf.d/max_input_time.ini'
-
-
-      docker exec php74 apt update &&
-      docker exec php74 apt install -y libmariadb-dev-compat libmariadb-dev libzip-dev libmagickwand-dev imagemagick &&
-      docker exec php74 docker-php-ext-install mysqli pdo_mysql zip gd intl bcmath opcache &&
-      docker exec php74 pecl install imagick &&
-      docker exec php74 sh -c 'echo "extension=imagick.so" > /usr/local/etc/php/conf.d/imagick.ini' &&
-      docker exec php74 pecl install redis &&
-      docker exec php74 sh -c 'echo "extension=redis.so" > /usr/local/etc/php/conf.d/docker-php-ext-redis.ini' &&
-      docker exec php74 sh -c 'echo "upload_max_filesize=50M \n post_max_size=50M" > /usr/local/etc/php/conf.d/uploads.ini' &&
-      docker exec php74 sh -c 'echo "memory_limit=256M" > /usr/local/etc/php/conf.d/memory.ini'
-      docker exec php74 sh -c 'echo "max_execution_time=120" > /usr/local/etc/php/conf.d/max_execution_time.ini'
-      docker exec php74 sh -c 'echo "max_input_time=70" > /usr/local/etc/php/conf.d/max_input_time.ini'
-
       clear
       echo "LDNMP环境安装完毕"
       echo "------------------------"
